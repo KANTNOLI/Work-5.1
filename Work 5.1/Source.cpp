@@ -92,15 +92,15 @@ int main() {
 	Stack<int> p1;
 	Stack<int> p2;
 	string msg = "";
-	int i2; int size2, int input;
+	int i2, size2, input;
 
 	cout << "Input size P1: ";
 	cin >> size2;
 	cout << "Input elements: ";
-	//for (int i2 = 0; i2 < size2; i2++) {
-	//	cin >> input;
-	//	p1.push(input);
-	//}
+	for (int i2 = 0; i2 < size2; i2++) {
+		cin >> input;
+		p1.push(input);
+	}
 
 	int size = p1.get_size();
 	for (int i = 0; i < size; i++) { 
@@ -115,17 +115,28 @@ int main() {
 	 
 	int sizeP1 = p1.get_size(); 
 	msg += "P1 = ";
-	for (int i = 0; i < sizeP1; i++) { 
-		msg += to_string(p1.top()) + " "; 
-		p1.pop(); 
+	if (sizeP1 > 0) {
+		for (int i = 0; i < sizeP1; i++) {
+			msg += to_string(p1.top()) + " ";
+			p1.pop();
+		}
 	}
+	else {
+		msg += "nul";
+	}
+	
 
 	int sizeP2 = p2.get_size();
 	msg += "\nP2 = ";
-	for (int i = 0; i < sizeP2; i++) {  
-		msg += to_string(p2.top()) + " "; 
-		p2.pop(); 
-	} 
+	if (sizeP2 > 0) {
+		for (int i = 0; i < sizeP2; i++) {
+			msg += to_string(p2.top()) + " ";
+			p2.pop();
+		}
+	}
+	else {
+		msg += "nul";
+	}
 
 	cout << msg;
 
